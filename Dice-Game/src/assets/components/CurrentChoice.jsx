@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const CurrentChoice = ({ selectedNumber, setSelectedNumber, showWarning }) => {
+const CurrentChoice = ({
+  selectedNumber,
+  setSelectedNumber,
+  showWarning,
+  setShowWarning,
+}) => {
   const handleSelect = (number) => {
     setSelectedNumber(number);
   };
 
-  useEffect(() => {
-    console.log(selectedNumber);
-  }, [selectedNumber]);
+  // useEffect(() => {
+  //   setShowWarning(false);
+  // }, [selectedNumber]);
 
   const numbers = [1, 2, 3, 4, 5, 6];
 
@@ -23,8 +28,8 @@ const CurrentChoice = ({ selectedNumber, setSelectedNumber, showWarning }) => {
   ));
 
   return (
-    <SelectionBtns>
-      <span showWarning={!showWarning}>You have not selected any number</span>
+    <SelectionBtns showWarning={showWarning}>
+      <span>You have not selected any number</span>
       <OnlyBtns>{buttons}</OnlyBtns>
       <p>Select Number</p>
     </SelectionBtns>
@@ -33,11 +38,13 @@ const CurrentChoice = ({ selectedNumber, setSelectedNumber, showWarning }) => {
 
 const SelectionBtns = styled.div`
   span {
+    display: ${({ showWarning }) => (showWarning ? "flex" : "none")};
+
     font-size: 24px;
     font-weight: 400;
     color: #ff0c0c;
   }
-  display: ${({ showWarning }) => (showWarning ? "flex" : "none")};
+
   display: flex;
   flex-direction: column;
   gap: 30px;

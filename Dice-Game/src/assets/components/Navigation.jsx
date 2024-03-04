@@ -8,6 +8,7 @@ const Navigation = ({
   score,
   setScore,
   showWarning,
+  setShowWarning,
 }) => {
   return (
     <StyledNav className="container">
@@ -16,6 +17,7 @@ const Navigation = ({
         selectedNumber={selectedNumber}
         setSelectedNumber={setSelectedNumber}
         showWarning={showWarning}
+        setShowWarning={setShowWarning}
       />
     </StyledNav>
   );

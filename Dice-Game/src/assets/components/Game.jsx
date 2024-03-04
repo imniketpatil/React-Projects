@@ -10,6 +10,7 @@ const Game = ({
   setScore,
   gNumber,
   showWarning,
+  setShowWarning,
 }) => {
   return (
     <div>
